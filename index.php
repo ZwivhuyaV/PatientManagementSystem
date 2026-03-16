@@ -9,14 +9,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "
         <script>
             alert('Login Successfully!');
-            window.location.href = 'http://localhost/employee-management-system/employee.php/';
+            window.location.href = 'http://localhost/patient-management-system/employee.php/';
         </script>
         "; 
     } else {
         echo "
         <script>
             alert('Login Failed, Incorrect Username or Password!');
-            window.location.href = 'http://localhost/employee-management-system/';
+            window.location.href = 'http://localhost/patient-management-system/';
         </script>
         ";
     }

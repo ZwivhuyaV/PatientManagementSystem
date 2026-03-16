@@ -75,13 +75,13 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll">
                 <li class="nav-item">
-                    <a class="nav-link " href="http://localhost/employee-management-system/employee.php">Home</a>
+                    <a class="nav-link " href="http://localhost/patient-management-system/employee.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="http://localhost/employee-management-system/department.php">Department</a>
+                    <a class="nav-link " href="http://localhost/patient-management-system/department.php">Department</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="http://localhost/employee-management-system/designation.php">Designation</a>
+                    <a class="nav-link active" href="http://localhost/patient-management-system/designation.php">Designation</a>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px; margin-left: 70%;">
@@ -225,7 +225,7 @@
         // Delete designation
         function deleteDesignation(id) {
             if (confirm("Do you want to delete this designation?")) {
-                window.location = "http://localhost/employee-management-system/endpoint/delete-designation.php?designation=" + id;
+                window.location = "http://localhost/patient-management-system/endpoint/delete-designation.php?designation=" + id;
             }
         }
 

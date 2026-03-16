@@ -354,7 +354,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/employee-management-system/endpoint/add-patient.php" method="POST" id="patientForm">
+                    <form action="/patient-management-system/endpoint/add-patient.php" method="POST" id="patientForm">
                         <div class="form-group mb-3">
                             <label for="name" class="form-label">Full Name:*</label>
                             <input type="text" class="form-control" id="name" name="name" required>
@@ -487,7 +487,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/employee-management-system/endpoint/update-patient.php" method="POST" id="updatePatientForm">
+                    <form action="/patient-management-system/endpoint/update-patient.php" method="POST" id="updatePatientForm">
                         <input type="hidden" id="updatePatientId" name="patient_id">
                         
                         <div class="form-group mb-3">
@@ -658,7 +658,7 @@
         
         // Send request to server to mark all as read
         $.ajax({
-            url: `/employee-management-system/endpoint/clear-all-notifications.php?type=${type.toLowerCase()}`,
+            url: `/patient-management-system/endpoint/clear-all-notifications.php?type=${type.toLowerCase()}`,
             method: 'POST'
         });
     }
@@ -666,7 +666,7 @@
     // Load appointment notifications with timezone adjustment
     function loadAppointmentNotifications() {
         $.ajax({
-            url: '/employee-management-system/endpoint/get-upcoming-appointments.php',
+            url: '/patient-management-system/endpoint/get-upcoming-appointments.php',
             method: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -743,7 +743,7 @@
     // Load birthday notifications with timezone adjustment
     function loadBirthdayNotifications() {
         $.ajax({
-            url: '/employee-management-system/endpoint/get-upcoming-birthdays.php',
+            url: '/patient-management-system/endpoint/get-upcoming-birthdays.php',
             method: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -829,7 +829,7 @@
 
     // View patient details
 function viewPatient(patientId) {
-    fetch(`/employee-management-system/endpoint/get-patient.php?id=${patientId}`)
+    fetch(`/patient-management-system/endpoint/get-patient.php?id=${patientId}`)
         .then(response => response.json())
         .then(data => {
             // Format dates as yyyy-mm-dd without time
@@ -869,7 +869,7 @@ function viewPatient(patientId) {
 
     // Update patient - fetch data and open modal
     function updatePatient(patientId) {
-        fetch(`/employee-management-system/endpoint/get-patient.php?id=${patientId}`)
+        fetch(`/patient-management-system/endpoint/get-patient.php?id=${patientId}`)
             .then(response => response.json())
             .then(data => {
                 document.getElementById('updatePatientId').value = data.tbl_patient_id;
@@ -1010,7 +1010,7 @@ function viewPatient(patientId) {
         // Export functionality
             document.getElementById("exportPdfBtn").addEventListener("click", () => {
                 const selectedMonth = $('#monthFilter').val();
-                window.location.href = `/employee-management-system/endpoint/export-patients-pdf.php?month=${selectedMonth}`;
+                window.location.href = `/patient-management-system/endpoint/export-patients-pdf.php?month=${selectedMonth}`;
             });
 
             // Export by Birthday Month
@@ -1023,7 +1023,7 @@ document.getElementById('exportBirthdaysBtn').addEventListener('click', function
     // Create a form to submit the request
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = '/employee-management-system/endpoint/export-birthdays-pdf.php';
+    form.action = '/patient-management-system/endpoint/export-birthdays-pdf.php';
     
     // Add the month parameter
     const monthInput = document.createElement('input');
@@ -1041,7 +1041,7 @@ document.getElementById('exportBirthdaysBtn').addEventListener('click', function
         // Delete patient
         window.deletePatient = function(id) {
             if (confirm("Are you sure you want to delete this patient record?")) {
-                window.location = "/employee-management-system/endpoint/delete-patient.php?patient_id=" + id;
+                window.location = "/patient-management-system/endpoint/delete-patient.php?patient_id=" + id;
             }
         }
     });
